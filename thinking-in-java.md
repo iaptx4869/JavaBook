@@ -378,3 +378,325 @@ javadoc只能为public（公共）和protected（受保护）成员进行文档�
 
 “驼峰风格”
 
+## 2.10 总结
+
+## 2.11 练习
+
+1. 创建一个类，它包含一个int域和一个char域，它们都没有被初始化，将它们的值打印出来
+
+   ```java
+   public class E01_DefaultInitialization {
+       int i;
+       char c;
+
+       public E01_DefaultInitialization() {
+           System.out.println("i = " + i);
+           System.out.println("c = [" + c + ']');
+       }
+
+       public static void main(String[] args) {
+           new E01_DefaultInitialization();
+       }
+   }
+   ```
+
+2. 参照本章的HelloDate.java这个例子，创建一个“Hello, World”程序，该程序只要输出这句话即可。
+
+   ```java
+   public class E02_HelloWorld {
+       public static void main(String[] args) {
+           System.out.println("Hello, world!");
+       }
+   }
+   ```
+
+3. 找出含有ATypeName的代码段，将其改写成完整的程序，然后编译、运行。
+
+   ```java
+   public class E03_ATypeName {
+       public static void main(String[] args) {
+           E03_ATypeName a = new E03_ATypeName();
+       }
+   }
+   ```
+
+4. 将DataOnly代码段改写成一个程序，然后编译、运行。
+
+   ```java
+   public class E04_DataOnly {
+       int i;
+       double d;
+       boolean b;
+
+       public static void main(String[] args) {
+           E04_DataOnly d = new E04_DataOnly();
+           d.i = 47;
+           d.d = 1.1;
+           d.b = false;
+       }
+   }
+   ```
+
+5. 修改前一个程序，将DataOnly中的数据在main()方法中赋值并打印出来。
+
+   ```java
+   public class E05_DataOnly2 {
+       public static void main(String[] args) {
+           E04_DataOnly d = new E04_DataOnly();
+           d.i = 47;
+           System.out.println("d.i = " + d.i);
+           d.d = 1.1;
+           System.out.println("d.d = " + d.d);
+           d.b = false;
+           System.out.println("d.b = " + d.b);
+       }
+   }
+   ```
+
+6. 编写一个程序，让它含有本章所定义的stotage()方法的代码段，并调用之。
+
+   ```java
+   public class E06_Storage {
+       String s = "Hello, World!";
+
+       int storage(String s) {
+           return s.length() * 2;
+       }
+
+       void print() {
+           System.out.println("storage(s) = " + storage(s));
+       }
+
+       public static void main(String[] args) {
+           E06_Storage st = new E06_Storage();
+           st.print();
+       }
+   }
+   ```
+
+7. 将Incrementable的代码段改写成一个完整的可运行程序。
+
+   ```java
+   class StaticTest {
+       static int i = 47;
+   }
+
+   public class E07_Incrementable {
+       static void increment() {
+           StaticTest.i++;
+       }
+
+       public static void main(String[] args) {
+           E07_Incrementable sf = new E07_Incrementable();
+           sf.increment();
+           E07_Incrementable.increment();
+           increment();
+       }
+   }
+   ```
+
+8. 编写一个程序，展示无论你创建了某个特定类的多少个对象，这个类中的某个特定的static域只有一个实例。
+
+   ```java
+   public class E08_StaticTest {
+       static int i = 47;
+
+       public static void main(String[] args) {
+           E08_StaticTest st1 = new E08_StaticTest();
+           E08_StaticTest st2 = new E08_StaticTest();
+           System.out.println(st1.i + " == " + st2.i);
+           st1.i++;
+           System.out.println(st1.i + " == " + st2.i);
+       }
+   }
+   ```
+
+9. 编写一个程序，展示自动包装功能对所有的基本类型和包装器类型都起作用。
+
+   ```java
+   public class E09_AutoboxingTest {
+       public static void main(String[] args) {
+           Byte by = 1;
+           byte bt = by;
+           System.out.println("byte = " + bt);
+           Short sh = 1;
+           short s = sh;
+           System.out.println("short = " + s);
+           Integer in = 1;
+           int i = in;
+           System.out.println("int = " + i);
+           Long lo = 1L;
+           long l = lo;
+           System.out.println("long = " + l);
+           Boolean bo = true;
+           boolean b = bo;
+           System.out.println("boolean = " + b);
+           Character ch = 'x';
+           char c = ch;
+           System.out.println("char = " + c);
+           Float fl = 1.0f;
+           float f = fl;
+           System.out.println("float = " + f);
+           Double db = 1.0d;
+           double d = db;
+           System.out.println("double = " + d);
+       }
+   }
+   ```
+
+10. 编写一个程序，打印出从命令行获得的三个参数。为此，需要确定命令行数组中String的下标。
+
+    ```java
+    public class E10_ShowArgs {
+        public static void main(String[] args) {
+            System.out.println(args[0]);
+            System.out.println(args[1]);
+            System.out.println(args[2]);
+        }
+    }
+    ```
+
+    ```java
+    public class E10_ShowArgs2 {
+        public static void main(String[] args) {
+            if (args.length < 3) {
+                System.err.println("Need 3 arguments");
+                System.exit(1);
+            }
+            System.out.println(args[0]);
+            System.out.println(args[1]);
+            System.out.println(args[2]);
+        }
+    }
+    ```
+
+    ​
+
+11. 将AllTheColorsOfTheRainbow这个示例改写成一个程序，然后编译、运行。
+
+    ```java
+    public class E10_ShowArgs {
+        public static void main(String[] args) {
+            System.out.println(args[0]);
+            System.out.println(args[1]);
+            System.out.println(args[2]);
+        }
+    }
+    ```
+
+12. 找出HelloDate.java的第二版本，也就是那个简单注释文档的示例。对该文件执行javadoc，然后通过Web浏览器验证所产生的文档。
+
+    ```java
+    public class E12_LeftToReader {
+        public static void main(String args[]) {
+            System.out.println("Exercise left to reader");
+        }
+    }
+    ```
+
+13. 通过Javadoc运行Documentation1.java，Documentation2.java和Documentation3.java，然后通过Web浏览器验证所产生的文档。
+
+    ```java
+    public class E13_LeftToReader {
+        public static void main(String args[]) {
+            System.out.println("Exercise left to reader");
+        }
+    }
+    ```
+
+14. 在前一个练习的文档中加入各项的HTML列表。
+
+    ```java
+    /** A class comment
+     * <pre>
+     * System.out.println(new Date());
+     * </pre>
+     */
+    public class E14_DocTest {
+        /** A variable comment */
+        public int i;
+
+        /** A method comment
+         * You can <em>even</em> insert a list:
+         * <ol>
+         * <li> Item one
+         * <li> Item two
+         * <li> Item three 
+         * </ol>
+         */
+        public void f() {
+        }
+    }
+    ```
+
+15. 使用练习2的程序，加入注释文档。用javadoc提取此注释文档，并产生一个HTML文件，然后通过Web浏览器查看结果。
+
+    ```java
+    /** A first example from <i>sTIJ4</i>.
+     * Demonstrates the basic class
+     * structure and the creation of a
+     * <code>main()</code> method.
+     */
+    public class E15_HelloWorldDoc {
+        /** The <code>main()</code> method which is
+         * called when the program is executed by saying
+         * <code>java E15_HelloWorldDoc</code>.
+         * @param args array passed from the command-line
+         */
+        public static void main(String[] args) {
+            System.out.println("Hello, world!");
+        }
+    }
+    ```
+
+    ​
+
+16. 找到第5章中的Overloading.java实例，并为它加入javadoc文档，然后用javadoc提取此注释文档，并产生一个HTML文件，最后，通过Web浏览器查看结果。
+
+    ```java
+    /** Model of a single arboreal unit. */
+    class Tree {
+        /** Current vertical aspect to the tip. */
+        int height; // 0 by default
+
+        /** Plant a seedling. Assume height can
+        be considered as zero. */
+        Tree() {
+            System.out.println("Planting a seedling");
+        }
+
+        /** Transplant an existing tree with a given height. */
+        Tree(int i) {
+            System.out.println("Creating new Tree that is " + i + " feet tall");
+            height = i;
+        }
+
+        /** Produce information about this unit. */
+        void info() {
+            System.out.println("Tree is " + height + " feet tall");
+        }
+
+        /** Produce information with optional message. */
+        void info(String s) {
+            System.out.println(s + ": Tree is " + height + " feet tall");
+        }
+    }
+
+    /** Simple test code for Tree class */
+    public class E16_OverloadingDoc {
+        /** Creates <b>Tree</b> objects and exercises the two
+        different <code>info()</code> methods. */
+        public static void main(String[] args) {
+            for (int i = 0; i < 5; i++) {
+                Tree t = new Tree(i);
+                t.info();
+                t.info("overloaded method");
+            }
+            // Overloaded constructor:
+            new Tree();
+        }
+    }
+    ```
+
+# 第3章 操作符
+
