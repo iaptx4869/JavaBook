@@ -1,3 +1,5 @@
 # JavaBook
 
-Java Book&amp;Notes
+* [Introduction](README.md)
+* [Thinking in Java](thinking-in-java.md)
+
